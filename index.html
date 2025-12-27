@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ever Clean Anderson | Touchless Mobile Car Wash</title>
+  <meta name="description" content="Ever Clean Anderson provides fast, touchless mobile car washes in Anderson Township, OH and surrounding areas. Book online and we come to you." />
+  <meta name="theme-color" content="#2563eb" />
+
+  <style>
+    :root{
+      --bg:#f5f7fa;--text:#0f172a;--muted:rgba(15,23,42,.70);--card:#fff;--line:rgba(15,23,42,.10);
+      --blue1:#0ea5e9;--blue2:#2563eb;--green:#22c55e;
+      --shadow2:0 10px 25px rgba(2,6,23,.08);--radius:18px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    a{color:inherit}
+    .container{width:min(1100px,calc(100% - 40px));margin:0 auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    .topbar{background:rgba(15,23,42,.92);color:rgba(226,232,240,.9);font-size:.95rem}
+    .topbar__inner{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0;flex-wrap:wrap}
+    .topbar__link{color:rgba(226,232,240,.95);text-decoration:none}
+    .topbar__link:hover{text-decoration:underline}
+    .pill{display:inline-flex;padding:6px 10px;border:1px solid rgba(226,232,240,.2);border-radius:999px;font-weight:700;font-size:.85rem}
+    .dot{opacity:.7;padding:0 4px}
+
+    .nav{position:sticky;top:0;z-index:50;background:rgba(245,247,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand__mark{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;font-weight:900;letter-spacing:.5px;box-shadow:var(--shadow2)}
+    .brand__text strong{display:block;font-size:1.05rem}.brand__text span{display:block;font-size:.95rem;opacity:.8}
+
+    .nav__toggle{display:none;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px;cursor:pointer}
+    .nav__toggle-lines{display:block;width:22px;height:14px;background:
+      linear-gradient(var(--text),var(--text)) 0 0/100% 2px no-repeat,
+      linear-gradient(var(--text),var(--text)) 0 6px/100% 2px no-repeat,
+      linear-gradient(var(--text),var(--text)) 0 12px/100% 2px no-repeat;opacity:.85}
+
+    .nav__menu{display:flex;align-items:center;gap:18px}
+    .nav__menu a{text-decoration:none;font-weight:700;color:rgba(15,23,42,.85)}
+    .nav__menu a:hover{text-decoration:underline}
+
+    .hero{
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 2px, transparent 3px),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.20) 3px, transparent 4px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.15) 2px, transparent 3px),
+        linear-gradient(135deg, var(--blue1), var(--blue2));
+      background-size: 120px 120px, 180px 180px, 200px 200px, cover;
+      color:#fff;padding:56px 0 44px
+    }
+    .hero__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+    .hero h1{margin:0 0 10px;font-size:clamp(2.2rem,3.2vw,3.4rem);letter-spacing:.5px}
+    .hero__tagline{margin:0 0 12px;font-weight:800;letter-spacing:.6px;color:rgba(224,242,254,.95)}
+    .hero__desc{margin:0 0 18px;max-width:60ch;font-size:1.1rem}
+    .hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .hero__badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .badge{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px}
+    .badge strong{display:block}.badge span{display:block;opacity:.9;font-size:.95rem}
+
+    .hero__media{position:relative;display:grid;gap:12px;justify-items:center}
+    .hero__media .placeholder{
+      width:min(360px,100%);
+      border-radius:22px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.22);
+      height:280px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:18px;
+      animation:floatHero 4s ease-in-out infinite;
+    }
+    @keyframes floatHero{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    .hero__card{width:min(360px,100%);background:rgba(15,23,42,.28);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px 14px}
+
+    .section{padding:54px 0;background:
+      radial-gradient(circle at 10% 20%, rgba(14,165,233,0.08) 2px, transparent 3px),
+      radial-gradient(circle at 80% 70%, rgba(37,99,235,0.08) 3px, transparent 4px);
+      background-size:160px 160px,220px 220px}
+    .section--alt{background:
+      radial-gradient(circle at 20% 30%, rgba(34,197,94,0.10) 2px, transparent 3px),
+      radial-gradient(circle at 80% 70%, rgba(37,99,235,0.06) 3px, transparent 4px);
+      background-size:180px 180px,240px 240px}
+
+    .section__head{margin-bottom:18px}
+    .section__head h2{margin:0 0 6px;font-size:clamp(1.6rem,2vw,2.1rem)}
+    .section__head p{margin:0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .grid--contact{grid-template-columns:.9fr 1.1fr}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow2);position:relative}
+    .card--wide{padding:24px}
+    .card--featured{border:2px solid rgba(34,197,94,.45)}
+    .card__kicker{display:inline-block;font-weight:900;font-size:.8rem;padding:6px 10px;border-radius:999px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.22);margin-bottom:10px}
+    .card--disabled{opacity:.62}
+    .ribbon{position:absolute;top:16px;right:16px;font-weight:900;font-size:.8rem;padding:8px 10px;border-radius:999px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.25);color:rgba(37,99,235,.95)}
+
+    .price{margin:8px 0 10px;font-size:1.2rem}
+    .list{padding-left:18px;margin:12px 0 0}
+    .list li{margin:6px 0}
+
+    .split{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
+    .callout{border-radius:16px;padding:16px;background:rgba(14,165,233,.10);border:1px solid rgba(14,165,233,.20)}
+
+    .form input,.form select,.form textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:1rem}
+    .form label{display:block;font-weight:800;font-size:.95rem}
+    .form__row{margin-top:12px}
+    .form__row--two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#fff;padding:14px 18px;border-radius:12px;text-decoration:none;font-weight:900;border:0;cursor:pointer;box-shadow:0 10px 25px rgba(34,197,94,.25)}
+    .btn:hover{filter:brightness(.98)}
+    .btn--ghost{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);box-shadow:none}
+    .btn--small{padding:10px 12px;border-radius:10px}
+    .btn--block{width:100%;margin-top:14px}
+
+    .muted{color:var(--muted)}
+
+    .footer{background:#0f172a;color:rgba(203,213,245,.92);padding:26px 0 16px;border-top:1px solid rgba(255,255,255,.08)}
+    .footer__inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-start}
+    .footer__right{display:flex;gap:14px;flex-wrap:wrap}
+    .footer__right a{color:rgba(203,213,245,.92);text-decoration:none}
+    .footer__right a:hover{text-decoration:underline}
+    .footer__bottom{margin-top:14px;border-top:1px solid rgba(255,255,255,.10);padding-top:12px;font-size:.95rem;color:rgba(203,213,245,.85)}
+
+    @media (max-width:900px){
+      .hero__grid{grid-template-columns:1fr}
+      .hero__badges{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .grid--contact{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .nav__toggle{display:inline-flex}
+      .nav__menu{display:none;width:100%;padding:10px 0 4px;border-top:1px solid var(--line);margin-top:10px;flex-wrap:wrap}
+      .nav__menu.is-open{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="pill">Touchless</span>
+        <span class="pill">Mobile</span>
+        <span class="pill">Fast</span>
+      </div>
+      <div class="topbar__right">
+        <a class="topbar__link" href="tel:+17209383468">Call: (720) 938-3468</a>
+        <span class="dot">•</span>
+        <a class="topbar__link" href="mailto:evercleanprime@gmail.com">evercleanprime@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#">
+        <span class="brand__mark" aria-hidden="true">EC</span>
+        <span class="brand__text"><strong>Ever Clean</strong><span>Anderson</span></span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__toggle-lines" aria-hidden="true"></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+
+      <nav id="navMenu" class="nav__menu" aria-label="Primary">
+        <a href="#how-it-works">How it works</a>
+        <a href="#services">Services</a>
+        <a href="#payment">Payment</a>
+        <a href="#loyalty">Loyalty</a>
+        <a class="btn btn--small" href="#contact">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <h1>Touchless Mobile Car Wash in Anderson Township</h1>
+          <p class="hero__tagline">Touchless • Fast • Mobile</p>
+          <p class="hero__desc">We provide a <strong>touchless, quick exterior wash</strong> at your home or office using high-pressure water and professional detergents. No brushes. No contact. No hassle.</p>
+          <div class="hero__cta">
+            <a class="btn" href="#contact">Book Now</a>
+            <a class="btn btn--ghost" href="#services">See Pricing</a>
+          </div>
+          <div class="hero__badges" role="list" aria-label="Highlights">
+            <div class="badge" role="listitem"><strong>Scratch-free</strong><span>No brushes</span></div>
+            <div class="badge" role="listitem"><strong>We come to you</strong><span>Home or office</span></div>
+            <div class="badge" role="listitem"><strong>Quick service</strong><span>Easy booking</span></div>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="placeholder">
+            <div>
+              <strong style="font-size:1.05rem;">Hero Image Placeholder</strong>
+              <p style="margin:8px 0 0; opacity:0.9;">In GitHub Pages, add your image at <code>assets/img/hero.webp</code>.</p>
+            </div>
+          </div>
+          <div class="hero__card"><strong>Service Area</strong><span>Anderson Township, OH + surrounding areas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <div class="section__head"><h2>How It Works</h2><p>Simple, fast, and touchless from start to finish.</p></div>
+        <div class="grid">
+          <article class="card"><h3>1) Request a Time</h3><p>Send your details and preferred time. We’ll confirm by text or call.</p></article>
+          <article class="card"><h3>2) Touchless Wash</h3><p>High-pressure rinse + foam detergent to remove dirt without touching paint.</p></article>
+          <article class="card"><h3>3) Drive Clean</h3><p>A quick, scratch-free wash so you can get back on the road.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <div class="section__head"><h2>Services & Pricing</h2><p><em>Pricing may vary based on distance and service location.</em></p></div>
+        <div class="grid">
+          <article class="card card--featured">
+            <div class="card__kicker">Most popular</div>
+            <h3>Basic Wash (Touchless)</h3>
+            <p class="price"><strong>$15 – $30</strong></p>
+            <p>A fast, touchless exterior wash designed to safely clean your vehicle without physical contact.</p>
+            <ul class="list">
+              <li>High-pressure touchless exterior wash</li>
+              <li>Foam soap application</li>
+              <li>Undercarriage rinse</li>
+              <li>Spot-free rinse</li>
+              <li>No brushes or physical contact</li>
+            </ul>
+            <a class="btn btn--block" href="#contact">Book Basic Wash</a>
+          </article>
+
+          <article class="card card--disabled" aria-disabled="true">
+            <div class="ribbon" aria-hidden="true">Available in Spring</div>
+            <h3>Full Detail</h3>
+            <p class="price"><strong>Starting at $120</strong></p>
+            <p>Inside and out cleaning for a deeper, longer-lasting clean.</p>
+            <ul class="list">
+              <li>Everything in Basic Wash</li>
+              <li>Interior vacuum (seats, carpets, mats)</li>
+              <li>Dashboard/console/door wipe-down</li>
+              <li>Interior window cleaning</li>
+            </ul>
+            <button class="btn btn--block" type="button" disabled>Coming soon</button>
+          </article>
+
+          <article class="card card--disabled" aria-disabled="true">
+            <div class="ribbon" aria-hidden="true">Available in Spring</div>
+            <h3>Premium Detail</h3>
+            <p class="price"><strong>Starting at $180</strong></p>
+            <p>Our most complete service for maximum shine and protection.</p>
+            <ul class="list">
+              <li>Everything in Full Detail</li>
+              <li>Deep interior cleaning + stain treatment</li>
+              <li>Tire + rim shine</li>
+              <li>Wax or paint sealant (optional add-on)</li>
+            </ul>
+            <button class="btn btn--block" type="button" disabled>Coming soon</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="payment" class="section">
+      <div class="container">
+        <div class="section__head"><h2>Online Payment</h2><p>Secure online payments are available for your convenience.</p></div>
+        <div class="card card--wide">
+          <div class="split">
+            <div>
+              <h3>Accepted</h3>
+              <p><strong>Credit / Debit</strong>, Apple Pay, Google Pay</p>
+              <h3>Payment Policy</h3>
+              <p>A <strong>50% deposit</strong> is required at booking to secure your appointment. The remaining balance is collected after the wash is completed.</p>
+              <p class="muted">👉 Secure checkout powered by Square.</p>
+            </div>
+            <div class="callout">
+              <h3>Tip</h3>
+              <p>After payment, call or text to confirm your appointment time.</p>
+              <a class="btn btn--small" href="tel:+17209383468">Text / Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loyalty" class="section section--alt">
+      <div class="container">
+        <div class="section__head"><h2>Loyalty Program</h2><p>Simple rewards for staying clean.</p></div>
+        <div class="card card--wide">
+          <h3>5 Washes + 1 FREE</h3>
+          <p>For every 5 paid washes, your 6th wash is <strong>FREE</strong>.</p>
+          <p class="muted">No contracts. No subscriptions. We keep track for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section__head"><h2>Contact & Booking</h2><p>Send a request and we’ll confirm by text or call.</p></div>
+        <div class="grid grid--contact">
+          <div class="card">
+            <h3>Contact</h3>
+            <p><strong>Phone:</strong> <a href="tel:+17209383468">(720) 938-3468</a></p>
+            <p><strong>Email:</strong> <a href="mailto:evercleanprime@gmail.com">evercleanprime@gmail.com</a></p>
+            <p><strong>Service Area:</strong> Anderson Township, OH + surrounding areas</p>
+          </div>
+          <div class="card">
+            <h3>Book a Service</h3>
+            <form class="form" action="mailto:evercleanprime@gmail.com" method="post" enctype="text/plain">
+              <div class="form__row"><label>Name<input name="Name" type="text" required /></label></div>
+              <div class="form__row form__row--two">
+                <label>Email<input name="Email" type="email" required /></label>
+                <label>Phone<input name="Phone" type="tel" required /></label>
+              </div>
+              <div class="form__row"><label>Service Requested
+                <select name="Service">
+                  <option value="Basic Wash">Basic Wash</option>
+                  <option value="Full Detail">Full Detail (Coming soon)</option>
+                  <option value="Premium Detail">Premium Detail (Coming soon)</option>
+                </select>
+              </label></div>
+              <div class="form__row"><label>Address<input name="Address" type="text" required /></label></div>
+              <button class="btn btn--block" type="submit">Send Booking Request</button>
+              <p class="muted" style="margin:10px 0 0;">This preview uses <code>mailto:</code>. On GitHub Pages you can swap to Formspree for direct submissions.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">EC</span>
+          <span class="brand__text"><strong>Ever Clean</strong><span>Anderson</span></span>
+        </div>
+        <p class="muted">Built for a fast, touchless mobile car wash service.</p>
+      </div>
+      <div class="footer__right">
+        <a href="#contact">Book</a>
+        <a href="#services">Pricing</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> Ever Clean Anderson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile nav toggle
+    const toggle = document.querySelector('.nav__toggle');
+    const menu = document.querySelector('#navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      menu.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          menu.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
